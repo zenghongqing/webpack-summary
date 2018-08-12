@@ -1,4 +1,4 @@
-## Webpack 学习记录
+## Webpack学习记录
 （1） Entry (必填)<br>
 entry是模块的入口，可抽象成输入，webpack执行构建的第一步将从入口文件开始搜寻及递归解析出所有入口依赖的模块。
 * context
@@ -16,8 +16,8 @@ object: { a: './app/entry-a', b: ['./app/entry-b1', './app/entry-b2']}会生成�
 (3) Plugin (插件)<br>
 Plugin用来扩展webpack功能，通过在构建流程里注入钩子实现。
 
-### 优化方法
-* 缩小文件搜索范围: 
+### 优化方法
+* 缩小文件搜索范围: 
 ```
 module.exports = {
     resolve: {
