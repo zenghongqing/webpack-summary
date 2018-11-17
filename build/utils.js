@@ -43,7 +43,7 @@ exports.cssLoaders = (options) => {
         css: generateLoaders(),
         postcss: generateLoaders(),
         less: generateLoaders('less'),
-        scss: generateLoaders('scss'),
+        scss: generateLoaders('sass'),
         sass: generateLoaders('sass', {indentedSyntax: true}),
         styl: generateLoaders('stylus'),
         stylus: generateLoaders('stylus')

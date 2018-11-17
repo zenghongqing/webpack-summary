@@ -16,13 +16,13 @@ rm(webpackConfig.output.path, err => {
         spinner.stop()
         if (err) throw err
         // 终端输出
-        process.stdout.write(stats.toString({
+        process.stdout.write(chalk.green(stats.toString({
             color: true,
             modules: false,
             children: false,
             chunks: false,
             chunkModules: false
-        }) + '\n\n')
+        }) + '\n\n'))
         if (stats.hasErrors()) {
             console.log(chalk.red('error......fail......'))
             process.exit(1)
