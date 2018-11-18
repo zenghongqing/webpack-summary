@@ -52,6 +52,7 @@
     "sass-loader": "^7.1.0",
     "scss-loader": "^0.0.1",
     "style-loader": "^0.23.1",
+    "uglify-js": "^3.4.9",
     "url-loader": "^1.0.1",
     "vue-eslint-parser": "^3.2.2",
     "vue-loader": "^15.3.0",

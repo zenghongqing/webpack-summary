@@ -10,3 +10,11 @@ new Vue({
     router,
     render: h => h(App)
 })
+
+// 注册sw.js
+if (navigator.serviceWorker !== null) {
+    navigator.serviceWorker.register('sw.js')
+        .then((registeration) => {
+            console.log('支持sw:', registeration.scope)
+        })
+}

@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 // const SvgSymbolInline = require('../webpack-plugin/svg-symbol-inline')
 const SvgSymbolLine = require('../webpack-plugin/svg-symbol-line')
+const SwWebpackPlugin = require('../webpack-plugin/sw-webpack-plugin')
 // const BundleAnalyzer = require('webpack-bundle-analyzer')
 function solve (urlpath) {
     return path.join(__dirname, urlpath)
@@ -31,7 +32,8 @@ module.exports = merge(baseConfig, {
          * 所以将filename与chunkFilename配置从base中拆分到dev与prod中
          */
         filename: 'static/js/[name].[chunkhash:7].js',
-        chunkFilename: 'static/js/[name].[chunkhash:7].js'
+        chunkFilename: 'static/js/[name].[chunkhash:7].js',
+        publicPath: './'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -52,7 +54,13 @@ module.exports = merge(baseConfig, {
         new OptimizeCSSAssetsPlugin({}), // css压缩
         // new BundleAnalyzer.BundleAnalyzerPlugin() // bundle分析
         // new SvgSymbolInline(),
-        new SvgSymbolLine()
+        new SvgSymbolLine(),
+        new SwWebpackPlugin({
+            sw: 'src/sw.js',
+            include: /\.(html|js|css|png|jpe?g|svg)$/,
+            exclude: undefined,
+            reduce: function (injectData) {}
+        })
     ],
     /**
      * 优化部分包括代码拆分

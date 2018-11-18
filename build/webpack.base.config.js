@@ -9,7 +9,8 @@ module.exports = {
         'app': './src/main.js'
     },
     output: {
-        path: path.resolve(__dirname, '../dist/')
+        path: path.resolve(__dirname, '../dist'),
+        filename: '[name].js'
     },
     plugins: [
         new CopyWebpackPlugin([

@@ -26,7 +26,6 @@ class SvgSymbolLine {
                     size: () => Buffer.byteLength(content, 'utf8')
                 }
                 cb()
-                console.log(Object.keys(compilation.assets), compilation.assets[symbolFileName].size(), '新增')
             }).catch(err => {
                 console.log('错误' + err)
             })
