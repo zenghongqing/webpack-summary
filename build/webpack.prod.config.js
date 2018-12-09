@@ -8,7 +8,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 // const SvgSymbolInline = require('../webpack-plugin/svg-symbol-inline')
 const SvgSymbolLine = require('../webpack-plugin/svg-symbol-line')
 const SwWebpackPlugin = require('../webpack-plugin/sw-webpack-plugin')
-// const BundleAnalyzer = require('webpack-bundle-analyzer')
+const OptimizeModuleIdAndChunkIdPlugin = require('../webpack-plugin/optimize-moduleid-and-chunkid')
 function solve (urlpath) {
     return path.join(__dirname, urlpath)
 }
@@ -60,7 +60,8 @@ module.exports = merge(baseConfig, {
             include: /\.(html|js|css|png|jpe?g|svg)$/,
             exclude: undefined,
             reduce: function (injectData) {}
-        })
+        }),
+        new OptimizeModuleIdAndChunkIdPlugin()
     ],
     /**
      * 优化部分包括代码拆分

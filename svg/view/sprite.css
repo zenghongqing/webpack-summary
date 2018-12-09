@@ -1,0 +1,27 @@
+.svg-QQ {
+	background: url("sprite.svg") 0 0 no-repeat;
+}
+
+.svg-QQ-dims {
+	width: 40px;
+	height: 40px;
+}
+
+.svg-wechat {
+	background: url("sprite.svg") 100% 0 no-repeat;
+}
+
+.svg-wechat-dims {
+	width: 40px;
+	height: 40px;
+}
+
+.svg-weibo {
+	background: url("sprite.svg") 0 100% no-repeat;
+}
+
+.svg-weibo-dims {
+	width: 40px;
+	height: 40px;
+}
+

@@ -8,7 +8,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-
+const BundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = merge(baseWebpackConfig, {
     /**
      * development模式下启用以下插件
@@ -58,6 +58,17 @@ module.exports = merge(baseWebpackConfig, {
             filename: 'index.html', // 文件写入路径，前面的路径与 devServer 中 contentBase 对应
             template: path.resolve(__dirname, '../src/index.html'),
             inject: true
+        }),
+        new BundleAnalyzer({
+            analyzerMode: 'server',
+            analyzerHost: '127.0.0.1',
+            analyzerPort: 8888,
+            reportFilename: 'report.html',
+            defaultSizes: 'parsed',
+            openAnalyzer: true,
+            generateStatsFile: false,
+            statsFilename: 'stats.json',
+            logLevel: 'info'
         })
     ]
 })

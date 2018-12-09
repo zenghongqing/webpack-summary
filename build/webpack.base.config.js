@@ -42,8 +42,15 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: [/node_modules/] // 否则加上transform-runtime的babel配置会报错
+                // loader: 'babel-loader',
+                exclude: [/node_modules/], // 否则加上transform-runtime的babel配置会报错
+                use: {
+                    // 加上自定义loader的存放路径
+                    loader: path.resolve('./loaders/index.js'),
+                    options: {
+                        test: 1
+                    }
+                }
             },
             // 单独配置的css预处理器
             ...utils.styleLoaders({

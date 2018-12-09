@@ -18,7 +18,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+// @import "../style/reset.scss"
 div.img {
   width: 100px;
   height: 100px;
